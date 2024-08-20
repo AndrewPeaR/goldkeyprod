@@ -1,0 +1,27 @@
+.main
+    position: relative
+    margin-bottom: 187px
+    &__title
+        text-transform: uppercase
+        font-family: 'Marvin', sans-serif
+        @include font-styles(60px, 400, normal, 0, $pink)
+        position: relative
+        max-width: 650px
+        margin-bottom: 55px
+        &::after
+            position: absolute
+            top: 158px
+            left: 179px
+            content: url(../img/geotag.svg)
+    &__text
+        max-width: 574px
+        margin-bottom: 20px
+        @include font-styles(30px, 200, normal, 0, $dark)
+    &__description
+        max-width: 520px
+        @include font-styles(17px, 200, normal, 0, $dark)
+    &::after
+        content: url(../img/main-bg.png)
+        position: absolute
+        top: -60px
+        right: 0

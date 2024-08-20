@@ -1,0 +1,32 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Отзывы</h1>
+    <a href="/admin/reviews/create" class="btn btn-primary mb-3">Создать отзыв</a>
+    <% if(reviews.length === 0) {%>
+    <p>Сейчас нет новых заявок</p>
+    <% } else { %>
+    <div class="row mb-5 pb-5 gy-3">
+      <% reviews.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Отзыв #<%= item.id %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Создан: <span class="text-success"><%= item.create_at.toLocaleDateString() %></span>
+          </h6>
+          <p class="card-text"><%= item.question %></p>
+          <p class="card-text">
+            Имя: <%= item.name %> <br />Чей родитель: <%= item.parent %>
+          </p>
+          <a href="reviews/update/<%= item.id %>" class="btn btn-primary"
+            >Редактировать</a
+          >
+          <a href="reviews/delete/<%= item.id %>" class="btn btn-outline"
+            >Удалить</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>

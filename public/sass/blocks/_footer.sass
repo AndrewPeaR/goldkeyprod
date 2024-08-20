@@ -1,0 +1,46 @@
+.footer-bg
+    background-color: $yellow
+    border-top-left-radius: 100px
+    border-top-right-radius: 100px
+    padding-top: 43px
+    padding-bottom: 75px
+
+.footer
+    display: flex
+    justify-content: space-between
+    &__info
+        .footer__logo
+            margin-bottom: 33px
+        .footer__info-text
+            @include font-styles(15px, 200, normal, 0, $dark)
+            margin-bottom: 17px
+            a
+                @include fast-transition
+                color: inherit
+                &:hover
+                    color: $pink
+    &__nav-items
+        display: flex
+        flex-direction: column
+        gap: 32px
+        @include font-styles(15px, 200, normal, 0, $dark)
+        a
+            @include fast-transition
+            color: inherit
+            &:hover
+                    color: $blue
+    &__knowledge
+        &-title
+            margin-bottom: 17px
+            @include font-styles(15px, 200, normal, 0, $dark)
+            opacity: 0.5
+        &-items
+            display: flex
+            flex-direction: column
+            @include font-styles(15px, 200, normal, 0, $dark)
+            a
+                @include fast-transition
+                color: inherit
+                &:hover
+                    color: $blue
+            

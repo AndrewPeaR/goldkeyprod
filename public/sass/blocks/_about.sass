@@ -1,0 +1,35 @@
+.about
+    display: flex
+    margin-bottom: 122px
+    &__info
+        width: 100%
+        .about__title
+            text-transform: uppercase
+            margin-bottom: 87px
+            max-width: 480px
+            @include font-styles(50px, 800, normal, 0, $pink)
+        .about__items
+            display: flex
+            flex-direction: column
+            gap: 35px
+            @include font-styles(20px, 200, normal, 0, $dark)
+
+    &__item
+        width: 100%
+        padding-bottom: 32px
+        border-bottom: 1px solid #e1e1e1
+        &:last-child
+            border-bottom: none
+            
+        .about__docs-title
+            margin-bottom: 35px
+            @include font-styles(30px, 600, normal, 0, $dark)
+        .about__docs-item
+            a
+                display: inline-flex
+                align-items: center
+                gap: 20px
+                @include font-styles(20px, 400, normal, 0, $dark)
+                @include fast-transition
+                &:hover
+                    color: $pink

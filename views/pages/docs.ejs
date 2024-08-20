@@ -1,0 +1,26 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Документы</h1>
+    <div class="row mb-5 pb-5 gy-3">
+      <% docs.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Документ #<%= item.id %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Название: <span class="text-success"><%= item.name %></span>
+          </h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Slug: <span class="text-success"><%= item.slug %></span>
+          </h6>
+          <p class="card-text">
+            <a href="../docs/<%= item.fileUrl %>"><%= item.fileUrl %></a>
+          </p>
+          <a href="docs/update/<%= item.id %>" class="btn btn-primary"
+            >Изменить</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Новости</h1>
+    <a href="/admin/news/create" class="btn btn-primary mb-3">Создать новость</a>
+    <div class="row mb-5 pb-5 gy-3">
+      <% news.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Новость #<%= item.id %></h5>
+          <h6 class="card-subtitle mb-2">
+            Заголовок: <span class="text-success"><%= item.title %></span>
+          </h6>
+          <p class="card-text">
+            <%= item.description %>
+          </p>
+          <p class="card-text">
+            <img width="300" src="/uploads/news/<%= item.imageUrl %>" alt="<%= item.imageUrl %>">
+          </p>
+          <a href="/admin/news/update?id=<%= item.id %>" class="btn btn-primary">Изменить</a>
+          <a href="/admin/news/delete/<%= item.id %>" class="btn btn-outline">Удалить</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>

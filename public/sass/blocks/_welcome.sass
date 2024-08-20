@@ -1,0 +1,67 @@
+.welcome-bg
+    background-color: $blue
+    border-radius: 20px
+    padding: 60px 65px
+    position: relative
+    margin-bottom: 98px
+    .welcome__phone
+        border-radius: 40px
+        background-color: $background-body
+        border: 2px solid $pink
+        padding: 15px 40px
+        display: block
+        position: absolute
+        top: 0
+        left: 50%
+        @include font-styles(20px, 600, normal, 0, $pink)
+        transform: translateX(-50%) translateY(-50%)
+        @include fast-transition
+        &:hover
+            background-color: $pink
+            color: $background-body
+
+
+
+.welcome
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0 auto
+    padding: 40px 0 33px 0
+    text-align: center
+    width: 100%
+    border-radius: 20px
+    background-image: url(../img/about-bg.png)
+    background-position: center
+    background-size: 110%
+    background-color: $background-body
+    background-repeat: no-repeat
+
+    &__title
+        text-transform: uppercase
+        margin-bottom: 20px
+        font-family: 'Marvin', sans-serif
+        @include font-styles(40px, 400, normal, 0, $dark)
+    &__description
+        max-width: 750px
+        margin-bottom: 30px
+        @include font-styles(20px, 200, normal, 0, $dark)
+        &:last-child
+            margin-bottom: 20px
+    &__call-to-action
+        max-width: 548px
+        margin-bottom: 51px
+        @include font-styles(20px, 600, normal, 0, $dark)
+    .welcome__author
+        display: flex
+        justify-content: flex-start
+        text-align: left
+        width: 100%
+        padding-left: 50px
+        &-title
+            margin-bottom: 5px
+            @include font-styles(20px, 500, normal, auto, $dark)
+        &-description
+            max-width: 247px
+            @include font-styles(17px, 200, normal, auto, $dark)
+

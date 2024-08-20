@@ -1,0 +1,33 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-3">Редактировать отзыв</h1>
+  <a href="/admin/reviews" class="mb-5 btn btn-primary">Все отзывы</a>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/reviews/update/<%= review.id %>" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="name">Имя родителя</label>
+          <input type="text" value='<%= review.name %>' class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Введите имя" require>
+        </div>
+        <div class="form-group mb-4">
+          <label for="parent">Чей родитель?</label>
+          <input type="text" value='<%= review.parent %>' class="form-control" name="parent" id="parent" placeholder="Введите имя ребенка" require>
+        </div>
+        <div class="form-group mb-4">
+          <label for="childAge">Сколько лет ребенку?</label>
+          <input type="text" value='<%= review.childAge %>' class="form-control" name="childAge" id="childAge" placeholder="Введите возраст ребенка" require>
+        </div>
+        <div class="form-group mb-4">
+          <label for="review">Отзыв</label>
+          <textarea type="text" rows="4" class="form-control" name="review" id="review" placeholder="Введите отзыв" require><%= review.review %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="videoUrl" class="form-label">Загрузите видеоролик</label>
+          <input class="form-control" type="file" id="videoUrl" name="videoUrl" require>
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+      </form>
+    </div>
+  </div>
+</div>

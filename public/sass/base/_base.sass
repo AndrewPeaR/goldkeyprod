@@ -1,0 +1,83 @@
+.wrapper
+    max-width: 1260px
+    margin: 0 auto
+
+*
+    font-family: $font-main
+
+html, body
+    background-color: $background-body
+html
+    scroll-behavior: smooth
+
+.btn
+    display: inline-block
+    cursor: pointer
+    height: 53px
+    padding: 13px 27px
+    border: 1px solid $dark
+    text-transform: uppercase
+    @include fast-transition
+    @include font-styles(20px, 500, normal, 0, $dark)
+
+    &:hover
+        border-color: none
+        background-color: $dark
+        color: $white
+
+// ADAPTIVE MOBILE
+// .open
+//     display: flex !important
+.burger
+    cursor: pointer
+    display: flex
+    position: relative
+    z-index: 50
+    align-items: center
+    justify-content: center
+    width: 53px
+    height: 53px
+    border: 1px solid $dark
+    @include fast-transition
+
+    &::before,
+    &::after
+        content: ""
+        position: absolute
+        height: 2px
+        // width: 23px
+        width: 45%
+        background-color: $dark
+        transition: all 0.3s ease 0s
+
+    &::before
+        top: 20px
+
+    &::after
+        bottom: 20px
+
+    &:hover
+        border-color: none
+        background-color: $dark
+        &::before,
+        &::after
+            background-color: $white
+
+    &.active span
+        transform: scale(0)
+
+    &.active
+        border: none
+        background-color: $dark
+        &::before
+            background-color: $white
+            top: 50%
+            transform: rotate(-45deg) translate(0, -50%)
+
+        &::after
+            background-color: $white
+            bottom: 50%
+            transform: rotate(45deg) translate(0, 50%)
+
+.block-scroll
+    overflow: hidden

@@ -1,0 +1,44 @@
+.news
+    margin-bottom: 145px
+    &__header
+        display: flex
+        align-items: flex-start
+    &__title
+        max-width: 670px
+        text-transform: uppercase
+        font-family: 'Marvin', sans-serif
+        margin-bottom: 25px
+        @include font-styles(50px, 400, normal, 0, $pink)
+    &__controls
+        padding-top: 23px
+        display: flex
+        gap: 18px
+        align-items: center
+        .news__next
+            transform: rotate(180deg)
+        .news__next, .news__back
+            cursor: pointer
+    &__description
+        max-width: 390px
+        margin-bottom: 75px
+        @include font-styles(20px, 200, normal, 0, $dark)
+
+    &__card
+        max-width: 406px
+        .news__card-img
+            height: 222px
+            margin-bottom: 25px
+            border-radius: 20px
+            img
+                border-radius: 20px
+                height: 100%
+                width: 100%
+                object-fit: cover
+                object-position: center
+        &-title
+            margin-bottom: 10px
+            @include font-styles(20px, 600, normal, 0, $dark)
+        &-text
+            hyphens: auto
+            @include font-styles(20px, 200, normal, 0, $dark)
+

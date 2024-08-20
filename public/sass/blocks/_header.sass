@@ -1,0 +1,18 @@
+.header
+    padding: 15px 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 77px
+
+.nav__items
+    display: flex
+    justify-content: flex-end
+    gap: 35px
+    @include font-styles(20px, 400, normal, 0, $dark)
+    a
+        color: inherit
+        @include fast-transition
+        &:hover
+            color: $pink
+

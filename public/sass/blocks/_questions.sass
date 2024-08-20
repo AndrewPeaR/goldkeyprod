@@ -1,0 +1,176 @@
+.questions
+    margin-bottom: 162px
+    &__title
+        margin-bottom: 25px
+        text-align: center
+        text-transform: uppercase
+        font-family: 'Marvin', sans-serif
+        @include font-styles(50px, 400, normal, 0, $pink)
+        position: relative
+        &::after
+            content: url('../img/light.svg')
+            position: absolute
+            top: 30px
+            right: 19%
+    &__undertitle
+        text-align: center
+        margin-bottom: 66px
+        @include font-styles(20px, 200, normal, 0, $dark)
+
+    &__buttons
+        margin-bottom: 20px
+        .questions__button
+            cursor: pointer
+            display: inline-block
+            border-radius: 100px
+            padding: 10px 16px
+            font-family: 'Marvin', sans-serif
+            text-transform: uppercase
+            font-size: 25px
+            font-weight: 400
+            @include fast-transition
+
+
+            &.array-docs
+                transform: rotate(-5deg)
+                color: $pink
+                border: 1px solid $green
+                &:hover
+                    background-color: $green
+                    color: $background-body
+            &.medical-doc
+                margin-left: 300px
+                transform: rotate(4deg)
+                color: $blue
+                border: 1px solid $purple
+                &:hover
+                    background-color: $purple
+                    color: $background-body
+                
+            &.get-compensation
+                margin-left: 200px
+                transform: rotate(-5deg)
+                color: $purple
+                border: 1px solid $blue
+                &:hover
+                    background-color: $blue
+                    color: $background-body
+            &.cheat-sheet
+                margin-left: 280px
+                transform: rotate(3deg)
+                color: $green
+                border: 1px solid $pink
+                &:hover
+                    background-color: $pink
+                    color: $background-body
+    
+    .questions__wrapper
+        margin-top: 90px
+        position: relative
+        padding: 72px 0
+        .questions__list
+            padding: 75px 61px
+            background-color: $blue
+            border-radius: 30px
+        .questions__items
+            max-width: 533px
+            display: flex
+            flex-direction: column
+            gap: 32px
+            .questions__question
+                margin-bottom: 19px
+                @include font-styles(30px, 600, normal, 0, $background-body)
+            .questions__answer
+                @include font-styles(20px, 200, normal, 0, $dark)
+
+        .questions__form
+            position: absolute
+            transform: translateY(-50%)
+            top: 50%
+            right: 20px
+            max-width: 619px
+            background-color: $pink
+            border-radius: 20px
+            padding: 35px 25px 40px
+            &::before
+                content: url('../img/boat.svg')
+                position: absolute
+                bottom: -14px
+                left: -32px
+            .questions__inner
+                border-radius: 20px
+                max-width: 570px
+                background-color: $background-body
+                padding: 24px 46px 53px
+                .questions__form-header
+                    text-transform: uppercase
+                    font-family: 'Marvin', sans-serif
+                    margin-bottom: 10px
+                    @include font-styles(40px, 900, normal, 0, $pink)
+                .questions__form-description
+                    margin-bottom: 40px
+                    @include font-styles(20px, 200, normal, 0, $dark)
+
+                .questions__form-wrapper
+                    position: relative
+                    display: flex
+                    flex-direction: column
+                    gap: 10px
+                    
+                    .questions__form-input
+                        border: 1px solid $pink
+                        padding: 15px 37px
+                        border-radius: 30px
+                        @include font-styles(20px, 200, normal, 0, $dark)
+                        &::placeholder
+                            color: $blue
+                    textarea
+                        outline: none
+                        resize: none
+                .questions__form-button
+                    padding: 15px 40px
+                    border-radius: 30px
+                    cursor: pointer
+                    border: 2px solid $pink
+                    background-color: $background-body
+                    position: absolute
+                    z-index: 4
+                    bottom: -73px
+                    left: 50%
+                    @include font-styles(20px, 600, normal, 0, $pink)
+                    transform: translateX(-50%)
+                    @include fast-transition
+                    &:hover
+                        background-color: $pink
+                        color: $background-body
+            .questions__checkbox
+                padding-top: 48px
+                text-align: center
+                .questions__checkbox-check
+                    position: absolute
+                    z-index: -1
+                    opacity: 0
+                .questions__checkbox-check:checked+.questions__checkbox-label::before
+                    background-color: $background-body
+
+                    
+                .questions__checkbox-label
+                    display: inline-flex
+                    gap: 10px
+                    @include font-styles(17px, 200, normal, 0, $dark)
+                    a
+                        color: $dark
+                        @include fast-transition
+                        &:hover
+                            color: $yellow
+                    &::before
+                        content: ''
+                        display: block
+                        border: 1px solid $background-body
+                        border-radius: 5px
+                        width: 20px
+                        height: 20px
+                        
+
+
+            
