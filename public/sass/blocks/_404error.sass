@@ -1,0 +1,29 @@
+.error__wrapper
+    max-width: 1000px
+    margin: 0 auto
+
+.error
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 100vh
+    &__title
+        margin-bottom: 5px
+        font-family: 'Marvin', sans-serif
+        text-transform: uppercase
+        @include font-styles(64px, 400, normal, 0, $dark)
+    &__text
+        margin-bottom: 74px
+        @include font-styles(20px, 400, normal, 0, $dark)
+    &__image
+        margin-bottom: 115px
+    &__btn
+        padding: 15px 40px
+        border: 2px solid $blue
+        border-radius: 30px
+        @include font-styles(20px, 600, normal, 0, $blue)
+        @include fast-transition
+        &:hover
+            background-color: $blue
+            color: $background-body

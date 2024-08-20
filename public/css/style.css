@@ -1078,6 +1078,55 @@ html {
   color: #FF9DBA;
 }
 
+.error__wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.error__title {
+  margin-bottom: 5px;
+  font-family: "Marvin", sans-serif;
+  text-transform: uppercase;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #2A2A2A;
+}
+.error__text {
+  margin-bottom: 74px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #2A2A2A;
+}
+.error__image {
+  margin-bottom: 115px;
+}
+.error__btn {
+  padding: 15px 40px;
+  border: 2px solid #90C6F3;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0;
+  color: #90C6F3;
+  transition: all 0.2s ease-out;
+}
+.error__btn:hover {
+  background-color: #90C6F3;
+  color: #F9F6EE;
+}
+
 .footer-bg {
   background-color: #FBE574;
   border-top-left-radius: 100px;
