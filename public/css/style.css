@@ -568,8 +568,7 @@ html {
   z-index: 1;
 }
 .performance__description .performance__video .videoplayer {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .performance__description .performance__video::after {
   z-index: 3;
@@ -577,7 +576,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: scale(0.7) translate(-50%, -50%);
 }
 
 .performance__items {
@@ -767,9 +766,6 @@ html {
   letter-spacing: 0;
   color: #2A2A2A;
 }
-.questions .questions__wrapper .questions__form .questions__inner .questions__form-wrapper .questions__form-input::-moz-placeholder {
-  color: #90C6F3;
-}
 .questions .questions__wrapper .questions__form .questions__inner .questions__form-wrapper .questions__form-input::placeholder {
   color: #90C6F3;
 }
@@ -869,14 +865,10 @@ html {
   border-top-right-radius: 13px;
   height: 150px;
   padding: 19px 13px;
-  -webkit-mask: url("../img/clip.svg"), linear-gradient(#fff, #fff);
-          mask: url("../img/clip.svg"), linear-gradient(#fff, #fff);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  -webkit-mask-position: top right;
-          mask-position: top right;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
+  mask: url("../img/clip.svg"), linear-gradient(#fff, #fff);
+  mask-composite: exclude;
+  mask-position: top right;
+  mask-repeat: no-repeat;
 }
 .reviews__card .reviews__content .reviews__name {
   text-transform: uppercase;
@@ -913,8 +905,7 @@ html {
   top: -57px;
 }
 .reviews__card .reviews__video video {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .reviews .swiper-slide:nth-child(4n+1) .reviews__content {
   background-color: #BEE173;
@@ -943,16 +934,14 @@ html {
 }
 
 .fslightbox-absoluted video[alt=alt] {
-  -webkit-mask-image: radial-gradient(circle, black 49%, rgba(0, 0, 0, 0) 50%);
-          mask-image: radial-gradient(circle, black 49%, rgba(0, 0, 0, 0) 50%);
+  mask-image: radial-gradient(circle, black 49%, rgba(0, 0, 0, 0) 50%);
 }
 .fslightbox-absoluted video[alt=alt]::-webkit-media-controls {
   opacity: 0;
 }
 
 .gslide.loaded {
-  -webkit-mask-image: radial-gradient(circle, black 28%, rgba(0, 0, 0, 0) 28%);
-          mask-image: radial-gradient(circle, black 28%, rgba(0, 0, 0, 0) 28%);
+  mask-image: radial-gradient(circle, black 28%, rgba(0, 0, 0, 0) 28%);
 }
 .gslide.loaded .plyr__controls {
   display: none;
@@ -1009,10 +998,8 @@ html {
   border-radius: 20px;
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 .news__card-title {
   margin-bottom: 10px;
@@ -1023,8 +1010,7 @@ html {
   color: #2A2A2A;
 }
 .news__card-text {
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   font-size: 20px;
   font-weight: 200;
   line-height: normal;
