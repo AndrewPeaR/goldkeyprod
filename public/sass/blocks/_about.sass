@@ -20,12 +20,51 @@
         border-bottom: 1px solid #e1e1e1
         &:last-child
             border-bottom: none
-            
+        .underline
+            padding-bottom: 40px
+            border-bottom: 1px solid #E1E1E1
+        .about__subtitle
+            margin-bottom: 10px
+            @include font-styles(20px, 600, normal, 0, $dark)
+        .about__text
+            font-size: 20px
+            font-weight: 300
+            &_mb
+                margin-bottom: 20px
+        .about__info-block
+            margin-bottom: 30px
         .about__docs-title
-            margin-bottom: 35px
+            margin-bottom: 40px
             @include font-styles(30px, 600, normal, 0, $dark)
-            a
-                @include font-styles(30px, 600, normal, 0, $dark)
+        .about__docs-subtitle            
+            margin-bottom: 30px
+            @include font-styles(20px, 600, normal, 0, $dark)
+        .about__docs-text
+            font-size: 20px
+            font-weight: 300
+            margin-bottom: 22px
+            
+        .about__docs-wrapper
+            display: flex
+            gap: 140px
+        .about__docs-block
+            max-width: 470px
+            ul
+                li
+                    font-size: 17px
+                    margin-bottom: 22px
+                    position: relative
+                    padding-left: 20px
+                .about__docs-address_pink::before
+                    position: absolute
+                    content: url(../img/geotag-pink.svg)
+                    top: 0
+                    left: 0
+                .about__docs-address_blue::before
+                    position: absolute
+                    content: url(../img/geotag-blue.svg)
+                    top: 0
+                    left: 0
         .about__docs-item
             a
                 display: inline-flex
@@ -35,3 +74,7 @@
                 @include fast-transition
                 &:hover
                     color: $pink
+            .center-image
+                padding-top: 30px
+                display: flex
+                justify-content: center
