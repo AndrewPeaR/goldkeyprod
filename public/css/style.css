@@ -1083,6 +1083,13 @@ html {
   letter-spacing: 0;
   color: #2A2A2A;
 }
+.about__item .about__docs-title-link {
+  color: #2A2A2A;
+  transition: all 0.35s ease-in-out;
+}
+.about__item .about__docs-title-link:hover {
+  color: #FF9DBA;
+}
 .about__item .about__docs-subtitle {
   margin-bottom: 30px;
   font-size: 20px;

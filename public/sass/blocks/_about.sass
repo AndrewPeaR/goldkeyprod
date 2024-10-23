@@ -36,6 +36,11 @@
         .about__docs-title
             margin-bottom: 40px
             @include font-styles(30px, 600, normal, 0, $dark)
+        .about__docs-title-link
+            color: $dark
+            @include transition
+            &:hover
+                color: $pink
         .about__docs-subtitle            
             margin-bottom: 30px
             @include font-styles(20px, 600, normal, 0, $dark)
