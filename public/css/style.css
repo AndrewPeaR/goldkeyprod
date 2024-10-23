@@ -940,13 +940,6 @@ html {
   opacity: 0;
 }
 
-.gslide.loaded {
-  mask-image: radial-gradient(circle, black 28%, rgba(0, 0, 0, 0) 28%);
-}
-.gslide.loaded .plyr__controls {
-  display: none;
-}
-
 .news {
   margin-bottom: 145px;
 }
