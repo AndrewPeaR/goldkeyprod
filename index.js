@@ -70,6 +70,7 @@ app.get("/", async (req, res) => {
   const news = await prisma.News.findMany();
   const main = await prisma.Main.findMany();
   const welcome = await prisma.Welcome.findMany();
+  const faq = await prisma.FAQ.findMany();
   if (req.user?.email)
     res.render("pages/index.ejs", {
       user: req.user.email,
@@ -77,6 +78,7 @@ app.get("/", async (req, res) => {
       news: news,
       main: main,
       welcome: welcome,
+      faq: faq,
     });
   else
     res.render("pages/index.ejs", {
@@ -85,6 +87,7 @@ app.get("/", async (req, res) => {
       news: news,
       main: main,
       welcome: welcome,
+      faq: faq,
     });
 });
 

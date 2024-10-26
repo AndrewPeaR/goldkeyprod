@@ -202,27 +202,14 @@
       <div class="questions__wrapper">
         <div class="questions__list" id="questions-list">
           <ul class="questions__items">
+            <% faq.forEach(function(item){ %>
             <li class="questions__item">
-              <h3 class="questions__question">Вопрос 1.</h3>
+              <h3 class="questions__question"><%= item.title %></h3>
               <p class="questions__answer">
-                Наши преподаватели - опытные профессионалы, которые помогут
-                вашему ребенку раскрыть свой потенциал.
+                <%= item.description %>
               </p>
             </li>
-            <li class="questions__item">
-              <h3 class="questions__question">Вопрос 2.</h3>
-              <p class="questions__answer">
-                Наши преподаватели - опытные профессионалы, которые помогут
-                вашему ребенку раскрыть свой потенциал.
-              </p>
-            </li>
-            <li class="questions__item">
-              <h3 class="questions__question">Вопрос 3.</h3>
-              <p class="questions__answer">
-                Наши преподаватели - опытные профессионалы, которые помогут
-                вашему ребенку раскрыть свой потенциал.
-              </p>
-            </li>
+            <% }) %>
           </ul>
         </div>
         <form id="questions__form" action="/questions" method="POST">

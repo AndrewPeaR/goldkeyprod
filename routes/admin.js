@@ -216,4 +216,54 @@ router.post('/welcome', async (req, res) => {
   res.render("pages/welcome.ejs", { welcome: welcome, user: req.user });
 })
 
+router.get('/faq', async (req, res) => {
+  const faq = await prisma.FAQ.findMany();
+  res.render("pages/faq.ejs", { faq: faq, user: req.user });
+})
+router.get('/faq/create', (req, res) => {
+  res.render("pages/faqCreate.ejs", { user: req.user });
+})
+router.post('/faq/create', async (req, res) => {
+  const newFaq = await prisma.FAQ.create({
+    data: {
+      title: req.body.title,
+      description: req.body.description,
+    },
+  });
+  res.redirect("/admin/faq/");
+})
+router.get("/faq/delete/:id", async (req, res) => {
+  const faq = await prisma.FAQ.delete({
+    where: {
+      id: Number(req.params.id),
+    },
+  });
+  res.redirect("/admin/faq");
+});
+router.get("/faq/update/:id", async (req, res) => {
+  try {
+    const faq = await prisma.FAQ.findUnique({
+      where: {
+        id: Number(req.params.id),
+      },
+    });
+    res.render("pages/faqUpdate.ejs", { faq: faq, user: req.user });
+  } catch (e) {
+    console.log(e);
+    res.render("pages/faqUpdate.ejs", { faq: [], user: req.user });
+  }
+});
+router.post("/faq/update/:id", async (req, res) => {
+  const faq = await prisma.FAQ.update({
+    where: {
+        id: Number(req.params.id),
+      },
+    data: {
+        title: req.body.title,
+        description: req.body.description,
+    },
+  });
+  res.render("pages/faqUpdate.ejs", { faq: faq, user: req.user });
+});
+
 module.exports = router;

@@ -1,0 +1,26 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Вопросы</h1>
+    <a href="/admin/faq/create" class="btn btn-primary mb-3">Создать отзыв</a>
+    <% if(faq.length === 0) {%>
+    <p>Сейчас нет новых заявок</p>
+    <% } else { %>
+    <div class="row mb-5 pb-5 gy-3">
+      <% faq.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= item.title %></h5>
+          <p class="card-text"><%= item.description %></p>
+          <a href="faq/update/<%= item.id %>" class="btn btn-primary"
+            >Редактировать</a
+          >
+          <a href="delete/<%= item.id %>" class="btn btn-outline"
+            >Удалить</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>

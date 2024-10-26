@@ -88,3 +88,9 @@ model Welcome {
   nameOfCEO    String
   CEO          String
 }
+
+model FAQ {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+}
