@@ -296,7 +296,6 @@ html {
 .main__title::after {
   position: absolute;
   top: 158px;
-  left: 179px;
   content: url(../img/geotag.svg);
 }
 .main__text {
@@ -309,6 +308,7 @@ html {
   color: #2A2A2A;
 }
 .main__description {
+  white-space: pre-line;
   max-width: 520px;
   font-size: 17px;
   font-weight: 200;
@@ -368,6 +368,7 @@ html {
   background-repeat: no-repeat;
 }
 .welcome__title {
+  white-space: pre-line;
   text-transform: uppercase;
   margin-bottom: 20px;
   font-family: "Marvin", sans-serif;
@@ -406,6 +407,7 @@ html {
   padding-left: 50px;
 }
 .welcome .welcome__author-title {
+  white-space: pre-line;
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: 500;
@@ -500,6 +502,8 @@ html {
   position: relative;
 }
 .filials__description {
+  position: relative;
+  z-index: 10;
   float: right;
   text-align: right;
 }

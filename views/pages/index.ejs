@@ -3,14 +3,12 @@
 <main>
   <div class="wrapper">
     <div class="main">
-      <h1 class="main__title">доверьте заботу о своём малыше нам!</h1>
+      <h1 class="main__title"><%= main[0].title %></h1>
       <p class="main__text">
-        А мы с любовью и заботой откроем перед ним мир знаний и возможностей!
+        <%= main[0].undertitle %>
       </p>
       <p class="main__description">
-        Развиваем потенциал детей уже более 20 лет!<br />
-        У нас каждый ребенок находит свое место, раскрывает свои таланты и
-        развивает навыки для успешного старта в жизни.
+        <%- main[0].description %>
       </p>
     </div>
   </div>
@@ -21,24 +19,19 @@
     <div class="welcome-bg">
       <a href="#questions__form" class="welcome__phone">Обратный звонок</a>
       <div class="welcome">
-        <h2 class="welcome__title">Центр развития<br />«Золотой ключик»</h2>
-        <p class="welcome__description">Мы рады видеть вас!</p>
+        <h2 class="welcome__title"><%= welcome[0].title %></h2>
+        <p class="welcome__description"><%= welcome[0].undertitle %></p>
         <p class="welcome__description">
-          Мы верим, что каждый ребенок уникален и имеет свой собственный темп
-          развития. Поэтому мы поддерживаем индивидуальный подход к каждому
-          ученику, помогая им раскрыть свой потенциал и достичь успеха. Мы
-          стремимся создать стимулирующую и вдохновляющую среду, в которой дети
-          могут учиться, расти и развиваться.
+          <%= welcome[0].description %>
         </p>
         <p class="welcome__call-to-action">
-          Присоединяйтесь к нам и помогите вашему ребенку открыть мир знаний,
-          воображения и возможностей!
+          <%= welcome[0].callToAction %>
         </p>
         <div class="welcome__author">
           <div class="welcome__author-text">
-            <p class="welcome__author-title">Башаева<br />Малика Рахмановна</p>
+            <p class="welcome__author-title"><%= welcome[0].nameOfCEO %></p>
             <p class="welcome__author-description">
-              Генеральный директор центра «Золотой ключик»
+              <%= welcome[0].CEO %>
             </p>
           </div>
           <div class="welcome__author-sign">

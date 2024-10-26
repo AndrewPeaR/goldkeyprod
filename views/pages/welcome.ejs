@@ -1,0 +1,36 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-5">Изменить контент</h1>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/welcome" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="title">Заголовок</label>
+          <textarea type="text" rows="4" class="form-control" id="title" name="title" placeholder="Введите заголовок"><%= welcome.title %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="undertitle">Подзаголовок</label>
+          <textarea type="text" rows="4" class="form-control" name="undertitle" id="undertitle" placeholder="Введите подзаголовок"><%= welcome.undertitle %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="description">Описание</label>
+          <textarea type="text" rows="7" class="form-control" name="description" id="description" placeholder="Введите описание"><%= welcome.description %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="callToAction">Призыв к действию</label>
+          <textarea type="text" rows="4" class="form-control" name="callToAction" id="callToAction" placeholder="Введите описание"><%= welcome.callToAction %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="nameOfCEO">ФИО Руководителя</label>
+          <textarea type="text" rows="4" class="form-control" name="nameOfCEO" id="nameOfCEO" placeholder="Введите описание"><%= welcome.nameOfCEO %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="CEO">Должность</label>
+          <textarea type="text" rows="4" class="form-control" name="CEO" id="CEO" placeholder="Введите описание"><%= welcome.CEO %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Обновить</button>
+      </form>
+    </div>
+  </div>
+</div>

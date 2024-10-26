@@ -1,0 +1,24 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-5">Изменить контент</h1>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/main" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="title">Заголовок</label>
+          <input type="text" value="<%= main.title %>" class="form-control" id="title" name="title" placeholder="Введите заголовок">
+        </div>
+        <div class="form-group mb-4">
+          <label for="undertitle">Подзаголовок</label>
+          <textarea type="text" rows="4" class="form-control" name="undertitle" id="undertitle" placeholder="Введите подзаголовок"><%= main.undertitle %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="description">Описание</label>
+          <textarea type="text" rows="4" class="form-control" name="description" id="description" placeholder="Введите описание"><%= main.description %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Обновить</button>
+      </form>
+    </div>
+  </div>
+</div>

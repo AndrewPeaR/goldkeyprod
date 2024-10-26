@@ -111,7 +111,6 @@ router.get("/news/create", (req, res) => {
   res.render("pages/createNews.ejs", { user: req.user });
 });
 router.post("/news/create", async (req, res) => {
-//   console.log(req.files);
   const newNews = await prisma.News.create({
     data: {
       title: req.body.title,
@@ -149,7 +148,6 @@ router.post("/news/update", async (req, res) => {
     }
 });
 router.get("/news/update", async (req, res) => {
-//   console.log(Number(req.query.id));
   try {
     const news = await prisma.News.findUnique({
       where: {
@@ -170,5 +168,52 @@ router.get("/news/delete/:id", async (req, res) => {
   });
   res.redirect("/admin/news");
 });
+
+router.get('/main', async (req, res) => {
+  const main = await prisma.Main.findUnique({
+    where: {
+      id: 1
+    }
+  });
+  res.render("pages/main.ejs", { main: main, user: req.user });
+})
+router.post('/main', async (req, res) => {
+  const main = await prisma.Main.update({
+    where: {
+      id: 1
+    },
+    data: {
+      title: req.body.title,
+      undertitle: req.body.undertitle,
+      description: req.body.description,
+    }
+  });
+  res.render("pages/main.ejs", { main: main, user: req.user });
+})
+
+router.get('/welcome', async (req, res) => {
+  const welcome = await prisma.Welcome.findUnique({
+    where: {
+      id: 1
+    }
+  });
+  res.render("pages/welcome.ejs", { welcome: welcome, user: req.user });
+})
+router.post('/welcome', async (req, res) => {
+  const welcome = await prisma.Welcome.update({
+    where: {
+      id: 1
+    },
+    data: {
+      title: req.body.title,
+      undertitle: req.body.undertitle,
+      description: req.body.description,
+      callToAction: req.body.callToAction,
+      nameOfCEO: req.body.nameOfCEO,
+      CEO: req.body.CEO
+    }
+  });
+  res.render("pages/welcome.ejs", { welcome: welcome, user: req.user });
+})
 
 module.exports = router;

@@ -71,3 +71,20 @@ model News {
   create_at   DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
+
+model Main {
+  id          Int    @id @default(autoincrement())
+  title       String
+  undertitle  String
+  description String
+}
+
+model Welcome {
+  id           Int    @id @default(autoincrement())
+  title        String
+  undertitle   String
+  description  String
+  callToAction String
+  nameOfCEO    String
+  CEO          String
+}
