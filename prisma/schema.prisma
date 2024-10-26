@@ -52,6 +52,7 @@ model Reviews {
   childAge   String
   review     String
   videoUrl   String
+  published  Boolean  @default(false)
   create_at  DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -105,6 +106,7 @@ model Advantages {
 model Performance {
   id           Int    @id @default(autoincrement())
   title        String
+  poster       String
   mainVideoUrl String
 }
 

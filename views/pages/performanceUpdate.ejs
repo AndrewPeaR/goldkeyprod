@@ -1,0 +1,32 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-5">Обновить пункт</h1>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/performance/update" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="description">Заголовок</label>
+          <textarea type="text" rows="4" class="form-control" name="description" id="description" placeholder="Введите описание"><%= performance.title %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <p>Текущее видео</p>
+          <video
+            width="450"
+            controls
+          >
+            <source src="/uploads/mainVideo/<%= performance.mainVideoUrl %>" type="video/mp4" />
+            <p>К сожалению, ваш браузер не поддерживает видео</p>
+          </video>
+          <input class="form-control" type="file" id="mainVideoUrl" name="mainVideoUrl">
+        </div>
+        <div class="form-group mb-4">
+          <p>Текущий постер</p>
+          <img class="mb-2" width="450" src="/uploads/mainVideo/<%= performance.poster %>" alt="<%= performance.poster %>">
+          <input class="form-control" type="file" id="poster" name="poster">
+        </div>
+        <button type="submit" class="btn btn-primary">Обновить</button>
+      </form>
+    </div>
+  </div>
+</div>

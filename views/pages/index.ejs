@@ -82,17 +82,17 @@
   <div class="wrapper">
     <div class="performance">
       <h2 class="performance__title">
-        Посмотрите, как проходит<br />день в нашем центре!
+        <%= performance.title %>
       </h2>
       <div class="performance__description">
-        <a data-fslightbox="gallery2" href="./video/imigevideo.mp4">
+        <a data-fslightbox="gallery2" href="./uploads/mainVideo/<%= performance.mainVideoUrl %>">
           <div class="performance__video">
             <video
               id="performance__videoplayer"
               width="100%"
               height="100%"
               class="videoplayer"
-              poster="./video/poster.jpg"
+              poster="./uploads/mainVideo/<%= performance.poster %>"
               preload="none"
             >
               <source src="./video/" type="video/mp4" />

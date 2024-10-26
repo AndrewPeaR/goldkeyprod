@@ -9,9 +9,13 @@ const AdminController = require("../controllers/admin-controller");
 router.get("/", async (req, res) => {
   if (req.user?.email) {
     const countQuestions = await prisma.Questions.findMany();
+    const reviews = await prisma.Reviews.findMany();
+    const news = await prisma.News.findMany();
     res.render("pages/admin.ejs", {
       user: req.user,
       countQuestions: countQuestions,
+      reviews: reviews,
+      news: news,
     });
   } else {
     res.render("pages/admin.ejs", { user: "" });
@@ -319,6 +323,39 @@ router.get('/performance', async (req, res) => {
   });
   res.render("pages/performance.ejs", { performanceItems: performanceItems, performance: performance, user: req.user });
 })
+router.get("/performance/update", async (req, res) => {
+  try {
+    const performance = await prisma.Performance.findUnique({
+      where: {
+        id: 1,
+      },
+    });
+    res.render("pages/performanceUpdate.ejs", { performance: performance, user: req.user });
+  } catch (e) {
+    console.log(e);
+    res.render("pages/performanceUpdate.ejs", { performanceItems: [], user: req.user });
+  }
+});
+router.post("/performance/update", async (req, res) => {
+    const data = {
+      title: req.body.title,
+    }
+    req.files.forEach(item => {
+      if(item.fieldname === 'mainVideo'){
+        data.mainVideo = item.filename
+      } else if(item.fieldname === 'poster'){
+        data.poster = item.filename
+      }
+    })
+    
+    const performance = await prisma.Performance.update({
+      where: {
+        id: 1,
+      },
+      data: data
+    });
+    res.render("pages/performanceUpdate.ejs", { performance: performance, user: req.user });
+});
 router.get("/performance/items/update/:id", async (req, res) => {
   try {
     const performanceItems = await prisma.PerformanceItems.findUnique({

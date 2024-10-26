@@ -30,6 +30,8 @@ const storageConfig = multer.diskStorage({
       destinationPath += "news";
     } else if (file.fieldname === "advantagesImageUrl") {
       destinationPath += "advantages";
+    } else if (file.fieldname === "mainVideoUrl" || file.fieldname === "poster") {
+      destinationPath += "mainVideo";
     }
     cb(null, destinationPath);
   },
@@ -74,6 +76,11 @@ app.get("/", async (req, res) => {
   const welcome = await prisma.Welcome.findMany();
   const faq = await prisma.FAQ.findMany();
   const advantages = await prisma.Advantages.findMany();
+  const performance = await prisma.Performance.findUnique({
+    where: {
+      id: 1
+    }
+  });
   const performanceItems = await prisma.PerformanceItems.findMany();
   if (req.user?.email)
     res.render("pages/index.ejs", {
@@ -84,6 +91,7 @@ app.get("/", async (req, res) => {
       welcome: welcome,
       faq: faq,
       advantages: advantages,
+      performance: performance,
       performanceItems: performanceItems,
     });
   else
@@ -95,6 +103,7 @@ app.get("/", async (req, res) => {
       welcome: welcome,
       faq: faq,
       advantages: advantages,
+      performance: performance,
       performanceItems: performanceItems,
     });
 });

@@ -2,9 +2,9 @@
 
 <div class="container">
     <h1 class="mb-3">Вопросы</h1>
-    <a href="/admin/faq/create" class="btn btn-primary mb-3">Создать отзыв</a>
+    <a href="/admin/faq/create" class="btn btn-primary mb-3">Создать вопрос</a>
     <% if(faq.length === 0) {%>
-    <p>Сейчас нет новых заявок</p>
+    <p>Сейчас нет вопросов</p>
     <% } else { %>
     <div class="row mb-5 pb-5 gy-3">
       <% faq.forEach(function(item){ %>

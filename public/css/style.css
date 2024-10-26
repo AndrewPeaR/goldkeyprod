@@ -319,7 +319,7 @@ html {
 .main::after {
   content: url(../img/main-bg.png);
   position: absolute;
-  top: -60px;
+  top: -40px;
   right: 0;
 }
 
@@ -549,6 +549,7 @@ html {
 }
 
 .performance__title {
+  white-space: pre-line;
   margin-bottom: 66px;
   position: relative;
   text-align: left;
