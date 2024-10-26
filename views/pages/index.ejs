@@ -225,8 +225,8 @@
             </li>
           </ul>
         </div>
-        <form action="/questions" method="POST">
-          <div class="questions__form" id="questions__form">
+        <form id="questions__form" action="/questions" method="POST">
+          <div class="questions__form">
             <div class="questions__inner">
               <h3 class="questions__form-header">Не нашли ответа?</h3>
               <p class="questions__form-description">
@@ -258,7 +258,12 @@
                   rows="6"
                   required
                 ></textarea>
-                <button type="submit" class="questions__form-button">
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6LevpWwqAAAAAM4vmyWWcCldU3cPiCmtaRRx4rAW"
+                  data-action="LOGIN"
+                  ></div>
+                  <button type="submit" class="questions__form-button">
                   Отправить
                 </button>
               </div>
@@ -393,3 +398,4 @@
     </div>
   </div>
 </section>
+

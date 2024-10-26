@@ -18,6 +18,7 @@
     <meta property="og:description" content="Центр развития 'Золотой ключик' для детей дошкольного возраста в городе Сургут. Доверьте заботу о своём малыше нам! А мы с любовью и заботой откроем перед ним мир знаний и возможностей! Развиваем потенциал детей уже более 20 лет! У нас каждый ребенок находит свое место, раскрывает свои таланты и развивает навыки для успешного старта в жизни.">
     <meta property="og:image" content="https://goldenkey86.ru/img/advantages1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <header>
@@ -145,5 +146,19 @@
     <script src="js/lightbox.js"></script>
     <script src="js/videoplayer.js"></script>
     <script src="js/activeHeader.js"></script>
+    <script>
+      document
+      .getElementById("questions__form")
+      .addEventListener("submit", function (event) {
+        let response = grecaptcha.getResponse();
+          if (response.length == 0) {
+            alert('Вы не прошли проверку CAPTCHA, попробуйте снова');
+            // TODO
+            // Красивый обработчик не пройденной капчи (отображать ошибку)
+            event.preventDefault();
+            return false;
+          }
+        });
+    </script>
   </body>
 </html>
