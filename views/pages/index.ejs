@@ -63,38 +63,17 @@
 <div>
   <div class="wrapper">
     <div class="advantages">
+      <% advantages.forEach(function(item){ %>
       <div class="advantages__item">
-        <img src="./img/advantages1.png" alt="advantages1" />
+        <img src="/uploads/advantages/<%= item.advantagesImageUrl %>" alt="<%= item.advantagesImageUrl %>" />
         <div class="advantages__description">
-          <h3 class="advantages__title">Cовременные средства безопасности</h3>
+          <h3 class="advantages__title"><%= item.title %></h3>
           <p class="advantages__text">
-            Наш центр оборудован современными средствами безопасности и гигиены,
-            чтобы обеспечить здоровье и благополучие каждого ребенка.
+            <%= item.description %>
           </p>
         </div>
       </div>
-      <div class="advantages__item">
-        <img src="./img/advantages2.png" alt="advantages1" />
-        <div class="advantages__description">
-          <h3 class="advantages__title">Образовательные программы для всех</h3>
-          <p class="advantages__text">
-            Наша команда профессиональных педагогов заботится о каждом ребенке,
-            обеспечивая атмосферу тепла, заботы и безопасности. 
-          </p>
-        </div>
-      </div>
-      <div class="advantages__item">
-        <img src="./img/advantages3.png" alt="advantages1" />
-        <div class="advantages__description">
-          <h3 class="advantages__title">
-            Индивидуальный<br />подход к ребенку
-          </h3>
-          <p class="advantages__text">
-            Мы стремимся создать специальную среду, где ребенок может
-            исследовать и познавать мир в своем собственном темпе. 
-          </p>
-        </div>
-      </div>
+      <% }) %>
     </div>
   </div>
 </div>

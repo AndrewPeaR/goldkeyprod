@@ -266,4 +266,48 @@ router.post("/faq/update/:id", async (req, res) => {
   res.render("pages/faqUpdate.ejs", { faq: faq, user: req.user });
 });
 
+router.get('/advantages', async (req, res) => {
+  const advantages = await prisma.Advantages.findMany();
+  res.render("pages/advantages.ejs", { advantages: advantages, user: req.user });
+})
+router.get("/advantages/update/:id", async (req, res) => {
+  try {
+    const advantages = await prisma.Advantages.findUnique({
+      where: {
+        id: Number(req.params.id),
+      },
+    });
+    res.render("pages/advantagesUpdate.ejs", { advantages: advantages, user: req.user });
+  } catch (e) {
+    console.log(e);
+    res.render("pages/advantagesUpdate.ejs", { advantages: [], user: req.user });
+  }
+});
+router.post("/advantages/update/:id", async (req, res) => {
+  // console.log(Number(req.query.id))
+  if(req.files[0]){
+      const advantages = await prisma.Advantages.update({
+          where: {
+              id: Number(req.params.id),
+            },
+            data: {
+                title: req.body.title,
+                description: req.body.description,
+                advantagesImageUrl: `${req.files[0].filename}`,
+            },
+        });
+        res.render("pages/advantagesUpdate.ejs", { advantages: advantages, user: req.user });
+    } else {
+        const advantages = await prisma.Advantages.update({
+            where: {
+                id: Number(req.params.id),
+              },
+              data: {
+                  title: req.body.title,
+                  description: req.body.description
+              },
+          });
+          res.render("pages/advantagesUpdate.ejs", { advantages: advantages, user: req.user });
+    }
+});
 module.exports = router;

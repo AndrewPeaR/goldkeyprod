@@ -94,3 +94,10 @@ model FAQ {
   title       String
   description String
 }
+
+model Advantages {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  advantagesImageUrl String
+}

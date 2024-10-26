@@ -1,0 +1,28 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-5">Обновить преимущество</h1>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/advantages/update/<%= advantages.id %>" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="title">Заголовок</label>
+          <input type="text" value="<%= advantages.title %>" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Введите заголовок">
+        </div>
+        <div class="form-group mb-4">
+          <label for="description">Описание</label>
+          <textarea type="text" rows="4" class="form-control" name="description" id="description" placeholder="Введите описание"><%= advantages.description %></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <p>Текущее фото</p>
+          <img class="w-50" src="/uploads/advantages/<%= advantages.advantagesImageUrl %>" alt="<%= advantages.imagadvantagesImageUrleUrl %>">
+        </div>
+        <div class="form-group mb-4">
+          <label for="advantagesImageUrl" class="form-label">Загрузите изображение</label>
+          <input class="form-control" type="file" id="advantagesImageUrl" name="advantagesImageUrl">
+        </div>
+        <button type="submit" class="btn btn-primary">Обновить</button>
+      </form>
+    </div>
+  </div>
+</div>

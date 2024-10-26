@@ -28,6 +28,8 @@ const storageConfig = multer.diskStorage({
       destinationPath += "reviews";
     } else if (file.fieldname === "newsImageUrl") {
       destinationPath += "news";
+    } else if (file.fieldname === "advantagesImageUrl") {
+      destinationPath += "advantages";
     }
     cb(null, destinationPath);
   },
@@ -71,6 +73,7 @@ app.get("/", async (req, res) => {
   const main = await prisma.Main.findMany();
   const welcome = await prisma.Welcome.findMany();
   const faq = await prisma.FAQ.findMany();
+  const advantages = await prisma.Advantages.findMany();
   if (req.user?.email)
     res.render("pages/index.ejs", {
       user: req.user.email,
@@ -79,6 +82,7 @@ app.get("/", async (req, res) => {
       main: main,
       welcome: welcome,
       faq: faq,
+      advantages: advantages,
     });
   else
     res.render("pages/index.ejs", {
@@ -88,6 +92,7 @@ app.get("/", async (req, res) => {
       main: main,
       welcome: welcome,
       faq: faq,
+      advantages: advantages,
     });
 });
 

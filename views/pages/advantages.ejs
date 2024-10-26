@@ -1,0 +1,25 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Преимущества</h1>
+    <% if(advantages.length === 0) {%>
+    <p>Сейчас нет карточек преимуществ</p>
+    <% } else { %>
+    <div class="row mb-5 pb-5 gy-3">
+      <% advantages.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= item.title %></h5>
+          <p class="card-text"><%= item.description %></p>
+          <p class="card-text">
+            <img width="300" src="/uploads/advantages/<%= item.advantagesImageUrl %>" alt="<%= item.advantagesImageUrl %>">
+          </p>
+          <a href="advantages/update/<%= item.id %>" class="btn btn-primary"
+            >Редактировать</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>
