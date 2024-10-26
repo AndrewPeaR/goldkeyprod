@@ -96,8 +96,19 @@ model FAQ {
 }
 
 model Advantages {
-  id          Int    @id @default(autoincrement())
-  title       String
-  description String
+  id                 Int    @id @default(autoincrement())
+  title              String
+  description        String
   advantagesImageUrl String
+}
+
+model Performance {
+  id           Int    @id @default(autoincrement())
+  title        String
+  mainVideoUrl String
+}
+
+model PerformanceItems {
+  id          Int    @id @default(autoincrement())
+  description String
 }

@@ -103,38 +103,15 @@
       </div>
       <div class="performance__list">
         <ul class="performance__items">
+          <% performanceItems.forEach(function(item){ %>
           <li class="performance__item">
             <img
               class="performance__list-type"
-              src="./img/star-point1.svg"
-              alt="star-point1"
-            />Ваш ребенок сможет выбрать то, что ему нравится, и получить
-            полезный опыт в приятной и поддерживающей атмосфере.
+              src="./img/star-point<%= item.id %>.svg"
+              alt="star-point<%= item.id %>"
+            /><%= item.description %>
           </li>
-          <li class="performance__item">
-            <img
-              class="performance__list-type"
-              src="./img/star-point2.svg"
-              alt="star-point2"
-            />Комфортная и безопасная обстановка, профессионалы своего дела и
-            увлекательные программы для ваших детей.
-          </li>
-          <li class="performance__item">
-            <img
-              class="performance__list-type"
-              src="./img/star-point3.svg"
-              alt="star-point3"
-            />Наши преподаватели - опытные профессионалы, которые помогут вашему
-            ребенку раскрыть свой потенциал.
-          </li>
-          <li class="performance__item">
-            <img
-              class="performance__list-type"
-              src="./img/star-point4.svg"
-              alt="star-point4"
-            />Дополнительные занятия в наших курсах станут не только полезным
-            опытом, но и источником радости и вдохновения.
-          </li>
+          <% }) %>
         </ul>
       </div>
     </div>
@@ -324,6 +301,7 @@
                     >
                     <!-- data-fancybox="gallery" -->
                     <!-- href="./uploads/reviews/<%= review.videoUrl %>" -->
+                    <% if(review.videoUrl.split('.')[review.videoUrl.split('.').length - 1] === "mp4" || review.videoUrl.split('.')[review.videoUrl.split('.').length - 1] === "webm") {%>
                     <video
                       width="100%"
                       height="100%"
@@ -334,8 +312,12 @@
                       id="reviews__videoplayer<%= review.id %>"
                     >
                       <source src="./uploads/reviews/<%= review.videoUrl %>" type="video/mp4" />
+                      <source src="./uploads/reviews/<%= review.videoUrl %>" type="video/webm" />
                       <p>К сожалению, ваш браузер не поддерживает видео</p>
                     </video>
+                    <% } else {%>
+                      <img src="./img/clickOnPhoto.svg" alt="">
+                      <% } %>
                   </a>
                   <div class="reviews__content">
                     <h3 class="reviews__name"><%= review.name %></h3>

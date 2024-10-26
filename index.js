@@ -74,6 +74,7 @@ app.get("/", async (req, res) => {
   const welcome = await prisma.Welcome.findMany();
   const faq = await prisma.FAQ.findMany();
   const advantages = await prisma.Advantages.findMany();
+  const performanceItems = await prisma.PerformanceItems.findMany();
   if (req.user?.email)
     res.render("pages/index.ejs", {
       user: req.user.email,
@@ -83,6 +84,7 @@ app.get("/", async (req, res) => {
       welcome: welcome,
       faq: faq,
       advantages: advantages,
+      performanceItems: performanceItems,
     });
   else
     res.render("pages/index.ejs", {
@@ -93,6 +95,7 @@ app.get("/", async (req, res) => {
       welcome: welcome,
       faq: faq,
       advantages: advantages,
+      performanceItems: performanceItems,
     });
 });
 

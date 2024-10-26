@@ -1,0 +1,37 @@
+<% layout('layouts/admin') %>
+
+<div class="container">
+    <h1 class="mb-3">Блок с видео</h1>
+    <div class="row mb-5 pb-5 gy-3">
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Заголовок и видео</h5>
+          <p class="card-text"><%= performance.title %></p>
+          <!-- <video
+              id="performance__videoplayer"
+              width="300px"
+              class="videoplayer"
+              poster="./video/poster.jpg"
+              preload="none"
+            >
+              <source src="./video/imigevideo.mp4" type="video/mp4" />
+              <p>К сожалению, ваш браузер не поддерживает видео</p>
+            </video> -->
+          <a href="performance/update/" class="btn btn-primary"
+            >Редактировать</a
+          >
+        </div>
+      </div>
+      <% performanceItems.forEach(function(item){ %>
+      <div class="card px-3 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Пункт: <%= item.id %></h5>
+          <p class="card-text"><%= item.description %></p>
+          <a href="performance/items/update/<%= item.id %>" class="btn btn-primary"
+            >Редактировать</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>

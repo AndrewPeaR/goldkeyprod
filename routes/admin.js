@@ -284,7 +284,6 @@ router.get("/advantages/update/:id", async (req, res) => {
   }
 });
 router.post("/advantages/update/:id", async (req, res) => {
-  // console.log(Number(req.query.id))
   if(req.files[0]){
       const advantages = await prisma.Advantages.update({
           where: {
@@ -309,5 +308,40 @@ router.post("/advantages/update/:id", async (req, res) => {
           });
           res.render("pages/advantagesUpdate.ejs", { advantages: advantages, user: req.user });
     }
+});
+
+router.get('/performance', async (req, res) => {
+  const performanceItems = await prisma.PerformanceItems.findMany();
+  const performance = await prisma.Performance.findUnique({
+    where: {
+      id: 1
+    }
+  });
+  res.render("pages/performance.ejs", { performanceItems: performanceItems, performance: performance, user: req.user });
+})
+router.get("/performance/items/update/:id", async (req, res) => {
+  try {
+    const performanceItems = await prisma.PerformanceItems.findUnique({
+      where: {
+        id: Number(req.params.id),
+      },
+    });
+    res.render("pages/performanceItemsUpdate.ejs", { performanceItems: performanceItems, user: req.user });
+  } catch (e) {
+    console.log(e);
+    res.render("pages/performanceItemsUpdate.ejs", { performanceItems: [], user: req.user });
+  }
+});
+router.post("/performance/items/update/:id", async (req, res) => {
+  const performanceItems = await prisma.PerformanceItems.update({
+    where: {
+        id: Number(req.params.id),
+      },
+    data: {
+        title: req.body.title,
+        description: req.body.description,
+    },
+  });
+  res.render("pages/performanceItemsUpdate.ejs", { performanceItems: performanceItems, user: req.user });
 });
 module.exports = router;
