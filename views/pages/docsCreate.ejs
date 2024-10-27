@@ -25,24 +25,18 @@
   </div>
 </div>
 
-<script type="importmap">
-  {
-    "imports": {
-      "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js",
-      "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.2.0/"
-    }
-  }
-</script>
+<script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
+
 <script type="module">
-  import {
-    ClassicEditor,
-    Essentials,
-    Bold,
-    Italic,
-    Font,
-    Paragraph,
-    List,
-  } from "ckeditor5";
+  const {
+        ClassicEditor,
+        Essentials,
+        Bold,
+        Italic,
+        Font,
+        Paragraph,
+        List,
+    } = CKEDITOR;
 
   ClassicEditor.create(document.querySelector("#editor"), {
     plugins: [Essentials, Bold, Italic, Font, Paragraph, List],
