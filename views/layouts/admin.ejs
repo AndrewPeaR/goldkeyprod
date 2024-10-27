@@ -10,7 +10,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <meta name="robots" content="nofollow noindex">
+    <link
+      rel="stylesheet"
+      href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css"
+    />
+    <meta name="robots" content="nofollow noindex" />
     <title>Золотой ключик</title>
   </head>
   <body class="login__body">
@@ -46,19 +50,54 @@
     </header>
 
     <%- body %>
-    <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 px-5 border-top bg-light">
+    <footer
+      class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 px-5 border-top bg-light"
+    >
       <p class="col-md-2 mb-0 text-muted">&copy; 2024 Золотой ключик</p>
-  
+
       <ul class="nav col justify-content-end">
-        <li class="nav-item"><a href="/admin/performance" class="nav-link px-2 text-muted">Блок "Видео"</a></li>
-        <li class="nav-item"><a href="/admin/advantages" class="nav-link px-2 text-muted">Блок "Преимущества"</a></li>
-        <li class="nav-item"><a href="/admin/faq" class="nav-link px-2 text-muted">Блок "Вопросы"</a></li>
-        <li class="nav-item"><a href="/admin/welcome" class="nav-link px-2 text-muted">Блок "Приветствие"</a></li>
-        <li class="nav-item"><a href="/admin/main" class="nav-link px-2 text-muted">Главный блок</a></li>
-        <li class="nav-item"><a href="/admin/news" class="nav-link px-2 text-muted">Новости</a></li>
-        <li class="nav-item"><a href="/admin/reviews" class="nav-link px-2 text-muted">Отзывы</a></li>
-        <li class="nav-item"><a href="/admin/questions" class="nav-link px-2 text-muted">Заявки</a></li>
-        <li class="nav-item"><a href="/admin" class="nav-link px-2">Главная</a></li>
+        <li class="nav-item">
+          <a href="/admin/docs" class="nav-link px-2 text-muted"
+            >Страница "Документы"</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/performance" class="nav-link px-2 text-muted"
+            >Блок "Видео"</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/advantages" class="nav-link px-2 text-muted"
+            >Блок "Преимущества"</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/faq" class="nav-link px-2 text-muted"
+            >Блок "Вопросы"</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/welcome" class="nav-link px-2 text-muted"
+            >Блок "Приветствие"</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/main" class="nav-link px-2 text-muted"
+            >Главный блок</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/admin/news" class="nav-link px-2 text-muted">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/reviews" class="nav-link px-2 text-muted">Отзывы</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/questions" class="nav-link px-2 text-muted">Заявки</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin" class="nav-link px-2">Главная</a>
+        </li>
       </ul>
     </footer>
   </body>

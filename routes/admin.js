@@ -1,5 +1,6 @@
 const Router = require("express").Router;
 const router = new Router();
+const slugify = require('slugify')
 
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -83,29 +84,100 @@ router.get("/questions/delete/:id", async (req, res) => {
 });
 
 router.get("/docs", async (req, res) => {
-  const docs = await prisma.Docs.findMany();
-  res.render("pages/docs.ejs", { user: req.user, docs: docs });
+  const docsBlock = await prisma.DocsBlock.findMany({
+    include: {
+      docs: true
+    }
+  });
+  res.render("pages/docs.ejs", { user: req.user, docsBlock: docsBlock });
 });
+router.get("/docs/create", (req, res) => {
+  res.render("pages/docsCreate.ejs", { user: req.user});
+});
+router.post('/docs/create', async (req, res) => {
+  const data = {
+    title: req.body.title,
+    description: req.body.description,
+    slug: slugify(req.body.title, {lower: true, strict: true})
+  }
+  const newBlock = await prisma.DocsBlock.create({
+    data: data
+  })
+
+  req.files?.forEach(async item => {
+    await prisma.Docs.create({
+      data: {
+        name: item.filename,
+        fileUrl: item.filename,
+        docsBlockId: Number(newBlock.id)
+      }
+    })
+  })
+  res.redirect(`/admin/docs/update/${newBlock.id}`);
+})
 router.get("/docs/update/:id", async (req, res) => {
-  const doc = await prisma.Docs.findUnique({
+  const docsBlock = await prisma.DocsBlock.findUnique({
     where: {
       id: Number(req.params.id),
     },
+    include: {
+      docs: true
+    }
   });
-  res.render("pages/updateDoc.ejs", { user: req.user, doc: doc });
+  res.render("pages/docsUpdate.ejs", { user: req.user, docsBlock: docsBlock });
 });
 router.post("/docs/update/:id", async (req, res) => {
-  const doc = await prisma.Docs.update({
+  const data = {
+    title: req.body.title,
+    description: req.body.description,
+    slug: slugify(req.body.title, {lower: true, strict: true})
+  }
+  const docsBlock = await prisma.DocsBlock.findUnique({
     where: {
       id: Number(req.params.id),
     },
-    data: {
-      name: req.name,
-      fileUrl: `${req.file.filename}`,
-    },
+    include: {
+      docs: true
+    }
   });
-  res.render("pages/docs.ejs", { user: req.user, doc: doc });
+  
+  req.files.forEach(async item => {
+    let include = false
+    docsBlock.docs.forEach(doc => {
+      if(doc.name === item.filename) {
+        include = true
+      }
+    })
+    if(!include){
+      await prisma.Docs.create({
+        data: {
+          name: item.filename,
+          fileUrl: item.filename,
+          docsBlockId: Number(req.params.id)
+        }
+      })
+    }
+  })
+  const docsBlockUpdate = await prisma.DocsBlock.update({
+    where: {
+      id: Number(req.params.id),
+    },
+    data: data,
+    include: {
+      docs: true
+    }
+  });
+  // console.log(docsBlock)
+  res.redirect(`/admin/docs/update/${req.params.id}`);
 });
+router.get('/docs/delete/:id', async (req, res) => {
+  await prisma.DocsBlock.delete({
+    where: {
+      id: Number(req.params.id)
+    }
+  })
+  res.redirect("/admin/docs")
+})
 
 router.get("/news", async (req, res) => {
   const news = await prisma.News.findMany();
@@ -125,7 +197,6 @@ router.post("/news/create", async (req, res) => {
   res.redirect("/admin/news/");
 });
 router.post("/news/update", async (req, res) => {
-  // console.log(Number(req.query.id))
   if(req.files[0]){
       const news = await prisma.News.update({
           where: {
@@ -381,4 +452,5 @@ router.post("/performance/items/update/:id", async (req, res) => {
   });
   res.render("pages/performanceItemsUpdate.ejs", { performanceItems: performanceItems, user: req.user });
 });
+
 module.exports = router;

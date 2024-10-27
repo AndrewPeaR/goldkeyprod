@@ -2,22 +2,29 @@
 
 <div class="container">
     <h1 class="mb-3">Документы</h1>
+    <a href="/admin/docs/create" class="btn btn-primary mb-3">Создать блок</a>
     <div class="row mb-5 pb-5 gy-3">
-      <% docs.forEach(function(item){ %>
+      <% docsBlock.forEach(function(item){ %>
       <div class="card px-3 rounded-3">
         <div class="card-body">
-          <h5 class="card-title">Документ #<%= item.id %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            Название: <span class="text-success"><%= item.name %></span>
+          <h5 class="card-title">Блок #<%= item.id %></h5>
+          <h5 class="card-title mb-2">
+            Название: <span><%- item.title %></span>
+          </h5>
+          <h6 class="card-subtitle mb-2">
+            Описание: <span><%- item.description %></span>
           </h6>
-          <h6 class="card-subtitle mb-2 text-muted">
-            Slug: <span class="text-success"><%= item.slug %></span>
-          </h6>
+          <% item.docs.forEach(function(doc){ %>
           <p class="card-text">
-            <a href="../docs/<%= item.fileUrl %>"><%= item.fileUrl %></a>
+            Документ:
+            <a href="/uploads/docs/<%= item.id %>/<%= doc.fileUrl %>" target="_blank"><%= doc.fileUrl %></a>
           </p>
+          <% }) %>
           <a href="docs/update/<%= item.id %>" class="btn btn-primary"
             >Изменить</a
+          >
+          <a href="docs/delete/<%= item.id %>" class="btn"
+            >Удалить</a
           >
         </div>
       </div>

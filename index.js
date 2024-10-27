@@ -8,6 +8,7 @@ const cors = require("cors");
 const router = require("./routes/routes");
 const path = require("path");
 const multer = require("multer");
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,10 +33,17 @@ const storageConfig = multer.diskStorage({
       destinationPath += "advantages";
     } else if (file.fieldname === "mainVideoUrl" || file.fieldname === "poster") {
       destinationPath += "mainVideo";
+    } else if (file.fieldname === "docsBlockFiles") {
+      const url = req.originalUrl.split('/')
+      destinationPath += `docs/${url[url.length - 1]}`;
+      if(!fs.existsSync(destinationPath)){
+        fs.mkdirSync(destinationPath);
+      }
     }
     cb(null, destinationPath);
   },
   filename: (req, file, cb) => {
+    file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')
     cb(null, file.originalname);
   },
 });
@@ -107,7 +115,15 @@ app.get("/", async (req, res) => {
       performanceItems: performanceItems,
     });
 });
-
+app.get('/about', async (req, res) => {
+  const docsBlock = await prisma.DocsBlock.findMany({
+    include: {
+      docs: true
+    }
+  });
+  // console.log(docsBlock.docs)
+  res.render('pages/about.ejs', {docsBlock: docsBlock})
+})
 app.use("/", router);
 
 app.use(function (req, res) {

@@ -192,6 +192,12 @@ html {
   color: #ffffff;
 }
 
+.center-image {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 .burger {
   cursor: pointer;
   display: flex;
@@ -1101,6 +1107,9 @@ html {
   font-weight: 300;
   margin-bottom: 22px;
 }
+.about__item .about__docs-text strong {
+  font-weight: 600;
+}
 .about__item .about__docs-wrapper {
   display: flex;
   gap: 140px;
@@ -1139,11 +1148,6 @@ html {
 }
 .about__item .about__docs-item a:hover {
   color: #FF9DBA;
-}
-.about__item .about__docs-item .center-image {
-  padding-top: 30px;
-  display: flex;
-  justify-content: center;
 }
 
 .error__wrapper {

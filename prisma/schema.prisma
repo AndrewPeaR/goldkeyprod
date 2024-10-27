@@ -58,10 +58,19 @@ model Reviews {
 }
 
 model Docs {
-  id      Int    @id @default(autoincrement())
-  name    String
-  slug    String
-  fileUrl String
+  id          Int        @id @default(autoincrement())
+  name        String
+  fileUrl     String
+  docsBlockId Int
+  docsBlock   DocsBlock @relation(fields: [docsBlockId], references: [id], onDelete: Cascade)
+}
+
+model DocsBlock {
+  id          Int     @id @default(autoincrement())
+  title       String?
+  slug        String?
+  description String?
+  docs        Docs[]
 }
 
 model News {

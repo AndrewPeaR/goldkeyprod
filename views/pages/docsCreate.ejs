@@ -1,0 +1,66 @@
+<% layout('layouts/admin') %>
+
+<div class="container mb-5 pb-5">
+  <h1 class="mb-3">Создать блок</h1>
+  <a href="/admin/docs" class="mb-5 btn btn-primary">Все блоки</a>
+  <div class="row mb-4">
+    <div class="col">
+      <form class="w-50 mx-auto" method="POST" action="/admin/docs/create" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label for="title">Название</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Введите название" require>
+        </div>
+        <div class="form-group mb-4">
+          <label for="description">Описание</label>
+          <textarea name="description" id="editor">
+            
+          </textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="docsBlockFiles" class="form-label">Загрузите документы</label>
+          <input class="form-control" type="file" id="docsBlockFiles" name="docsBlockFiles" multiple require>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">
+  {
+    "imports": {
+      "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js",
+      "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.2.0/"
+    }
+  }
+</script>
+<script type="module">
+  import {
+    ClassicEditor,
+    Essentials,
+    Bold,
+    Italic,
+    Font,
+    Paragraph,
+    List,
+  } from "ckeditor5";
+
+  ClassicEditor.create(document.querySelector("#editor"), {
+    plugins: [Essentials, Bold, Italic, Font, Paragraph, List],
+    toolbar: [
+      "undo",
+      "redo",
+      "|",
+      "bold",
+      "italic",
+      "|",
+      "fontSize",
+      "fontFamily",
+      "fontColor",
+      "fontBackgroundColor",
+      'numberedList', 'bulletedList'
+    ],
+  })
+    .then(/* ... */)
+    .catch(/* ... */);
+</script>

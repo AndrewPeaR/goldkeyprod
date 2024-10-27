@@ -463,13 +463,23 @@
                   ><img src="./img/document.svg" alt="document" />Опрос о качестве осуществления образовательной деятельности</a
                 >
             </li>
-            <li class="about__docs-item">
-                <div class="center-image">
-                    <img src="./img/formsForQuality.png" alt="formsForQuality" width="14%">
-                </div>
-            </li>
             </ul>
         </li>
+        <% docsBlock.forEach(block => {  %>
+        <li class="about__item">
+          <h3 class="about__docs-title"><%= block.title %></h3>
+          <div class="about__docs-text"><%- block.description %></div>
+          <ul class="about__docs-list">
+            <% block.docs.forEach(doc => { %>
+            <li class="about__docs-item">
+              <a href="/uploads/docs/<%= block.id %>/<%= doc.name %>" target="_blank"
+                ><img src="./img/document.svg" alt="document" /><%= doc.name %></a
+              >
+            </li>
+            <% }) %>
+          </ul>
+        </li>
+        <% }) %>
         </ul>
       </div>
     </div>

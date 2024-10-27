@@ -10,8 +10,5 @@ router.use('/auth', authRouter)
 router.use('/posts', postsRouter)
 router.use('/questions', questionsRouter)
 router.use('/admin', authCheck, adminRouter)
-router.get('/about', (req, res) => {
-    res.render('pages/about.ejs')
-})
 
 module.exports = router
